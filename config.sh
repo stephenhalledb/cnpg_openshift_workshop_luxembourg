@@ -83,7 +83,7 @@ export object_storage_type="minio"
 
 # MinIO
 export ACCESS_KEY_ID="minio"
-export ACCESS_SECRET_KEY="edb-workshop"
+export ACCESS_SECRET_KEY="edbworkshop"
 export ACCESS_SESSION_TOKEN=""
 export object_storage_bucket="${bucket}"
 export s3_destination_path="s3://${bucket}/"
@@ -91,7 +91,7 @@ export s3_destination_path="s3://${bucket}/"
 ## S3
 #export object_storage_bucket="${bucket}"
 #export s3_destination_path="s3://${bucket}/"
-export s3_endpoint_url="https://minio-api-minio.apps.ocp.2lt49.sandbox2071.opentlc.com"
+export s3_endpoint_url="http://minio-service.minio.svc.cluster.local:9000/"
 
 
 # TDE used
