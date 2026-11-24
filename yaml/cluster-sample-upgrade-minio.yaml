@@ -44,13 +44,13 @@ spec:
 $affinity
 
   resources:
-    #requests:
-    #  memory: "512Mi"
-    #  cpu: "1"
-    limits:
+    requests:
       memory: "$postgres_memory"
       cpu: "$postgres_cpu"
-  
+    limits:
+      memory: "$postgres_memory_max"
+      cpu: "$postgres_cpu_max"
+      
   backup:
     #target: "prefer-standby"
     barmanObjectStore:

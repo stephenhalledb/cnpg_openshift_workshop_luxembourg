@@ -34,10 +34,12 @@ spec:
 $affinity
 
   resources:
-    limits:
+    requests:
       memory: "$postgres_memory"
       cpu: "$postgres_cpu"
-
+    limits:
+      memory: "$postgres_memory_max"
+      cpu: "$postgres_cpu_max"
 #  managed:
 #    services:
 #      #disabledDefaultServices: ["ro", "r"]

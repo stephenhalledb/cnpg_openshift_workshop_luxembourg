@@ -15,46 +15,30 @@ export region="emea"              # emea,na,apj
 export bucket="backups"     # S3 bucket name
 
 # Kubernetes environment
-export namespace="edb-${region}-${id}"   # k8s namespace
-export kubectl_cmd="oc"
-export kubectl_cnp="kubectl-cnp"
+export namespace="edb-${region}-${id}"   # k8s namespace (project) of the demo
+export kubectl_cmd="oc"                  # command used to talk to the cluster
+export kubectl_cnp="kubectl-cnp"         # CloudNativePG kubectl plugin
 
 # Postgres
 export cluster_name="cluster-${id}"
 export cluster_restore="cluster-restore-${id}"
-export postgres_instances=3
-export postgres_cpu="0.5"
-export postgres_memory="512Mi"
-export postgres_storage="512Mi"
-export postgres_wal_storage="512Mi"
 
-# (Deprecated) Quay.io repository
-#export postgres_default_image="quay.io/enterprisedb/postgresql:16.2-multiarch"
-#export postgres_upgrade_image="quay.io/enterprisedb/postgresql:16.4-multiarch"
+
+# --- Postgres clusters: size & ressoucres ---------------------------------------
+
+export postgres_instances=3                      # number of instances (1 primary + replicas)
+export postgres_cpu="0.1"                        # default value for workshop 0.1
+export postgres_cpu_max="0.5"                    # default value for workshop 0.5
+
+export postgres_memory="256Mi"                   # default value for workshop 256Mi
+export postgres_memory_max="512Mi"               # default value for workshop 512Mi
+export postgres_storage="512Mi"                  # default value for workshop 512Mi
+export postgres_wal_storage="512Mi"              # default value for workshop 512Mi
+
 
 # Using Docker repository
 
 ## List version images
-## Login skopeo
-## skopeo login docker.enterprisedb.com
-
-## Operator
-## skopeo list-tags docker://docker.enterprisedb.com/k8s/edb-postgres-for-kubernetes
-
-## EDB Operator
-## skopeo list-tags docker://docker.enterprisedb.com/k8s/edb-postgres-for-cloudnativepg
-
-## Global cluster
-## skopeo list-tags docker://docker.enterprisedb.com/k8s/edb-cloudnativepg-global-cluster
-
-## EDB Postgres
-## skopeo list-tags docker://docker.enterprisedb.com/k8s/postgresql
-
-## EDB Postgres Extended
-## skopeo list-tags docker://docker.enterprisedb.com/k8s/edb-postgres-extended
-
-## EDB Postgres Advanced
-## skopeo list-tags docker://docker.enterprisedb.com/k8s/edb-postgres-advanced
 
 # ---
 # EDB Postgres
