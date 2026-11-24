@@ -8,6 +8,13 @@ echo "04" > ./docs/docid
 
 # Create namespace if does not exists
 . ./create_namespace.sh
+if [ $(grep ACCESS_SECRET config.sh | cut -f2 -d"=" | tr -d '"') == "edbworkshop" ]; then
+ print_error "=======================================================\n" 
+ print_error "You didn't update the pass!!!\n" 
+ print_error "Go go to config.sh and change the minio password\n"
+ print_error "$(grep -n ACCESS_SECRET config.sh)\n"
+ print_error "=======================================================\n"
+else
 
 if [ "$object_storage_type" == "aws" ]; then
   print_info "=======================================================\n"
@@ -31,6 +38,8 @@ elif [ "$object_storage_type" == "minio" ]; then
   ${kubectl_cmd} create secret generic minio-creds \
     --from-literal=ACCESS_KEY_ID=${ACCESS_KEY_ID} \
     --from-literal=ACCESS_SECRET_KEY=${ACCESS_SECRET_KEY}
+fi
+
 fi
 
 # Set context
