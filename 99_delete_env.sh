@@ -5,7 +5,7 @@
 ${kubectl_cmd} delete cluster.postgresql.k8s.enterprisedb.io ${cluster_name}
 ${kubectl_cmd} delete cluster.postgresql.k8s.enterprisedb.io ${cluster_restore}
 ${kubectl_cmd} delete cluster.postgresql.k8s.enterprisedb.io ${cluster_name}-major
-${kubectl_cmd} delete namespace ${namespace}
+#${kubectl_cmd} delete namespace ${namespace}
 
 print_info "======================================================\n"
 print_info "Your demo environment has been deleted.\n"
